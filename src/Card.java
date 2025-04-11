@@ -23,7 +23,10 @@ public class Card {
         {
             return "Down";
         }
-        if(face < 10)
+        if (face == 1) {
+            return  "A  "+ suit;
+        }
+        else if(face < 10)
         {
             return face + "  "+ suit;
         }
@@ -43,12 +46,45 @@ public class Card {
     }
 
     public String toString() {
-        return "Card{" +
-                "face=" + face +
-                ", suit=" + suit +
-                ", colour=" + colour +
-                ", visability=" + visability +
-                '}';
+        String word ="";
+        switch (suit){
+            case 'H':
+            word = "Hearts";
+            break;
+            case 'C':
+                word = "Clubs";
+                break;
+            case 'D':
+                word = "Diamonds";
+                break;
+            case 'S':
+                word = "Spades";
+                break;
+        }
+        if (!visability )
+        {
+            return "Down";
+        }
+        if (face == 1) {
+            return  "Ace  "+ word;
+        }
+        else if(face < 10)
+        {
+            return face + "  "+ word;
+        }
+        else if (face == 10) {
+            return face + " "+ word;
+        }
+        else if (face == 11) {
+            return  "Jack  "+ word;
+        }
+        else if (face == 12) {
+            return  "Queen  "+ word;
+        }
+        else if (face == 13) {
+            return  "King  "+ word;
+        }
+        return "Card not found";
     }
 
     public void setVisability(boolean var)
