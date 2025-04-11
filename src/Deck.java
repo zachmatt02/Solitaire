@@ -1,7 +1,7 @@
 import java.util.*;
 public class Deck {
-    ArrayList<Card> list = new ArrayList<Card>();
-    Stack<Card> stack = new Stack<Card>();
+    ArrayList<Card> list = new ArrayList<>();
+    Stack<Card> stack = new Stack<>();
 
 
     public Deck(){
@@ -30,6 +30,10 @@ public class Deck {
             Card card = stack.pop();
             System.out.println(card.toString());
         }
+
+    }
+    public Stack<Card> getStack(){
+        return stack;
     }
 
 }
