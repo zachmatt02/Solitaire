@@ -7,8 +7,6 @@ public class Main {
         Stack<Card> stockStack = deck.getStack();
 
 
-
-
         //deck.displayDeck();
         for(int i = 0; i < 7; i++)
         {
@@ -23,7 +21,8 @@ public class Main {
             tableau[i].addCard(stockStack.pop());
         }
 
-            displaySolitaire(tableau, stockStack);
+
+        displaySolitaire(tableau, stockStack);
 
 
     }
@@ -31,8 +30,6 @@ public class Main {
     public static void displaySolitaire(Tableau[] tableau,Stack<Card> stockStack){
         Stack<Card> wasteStack = new Stack<>();
         while(true){
-            Scanner scanner = new Scanner(System.in);
-            int choice= 0;
             String topStackDisplay;
             if(stockStack.isEmpty())
             {
@@ -52,9 +49,10 @@ public class Main {
                 }
                 System.out.println();
             }
+
             System.out.println("Select Action");
-            choice = scanner.nextInt();
-            if(choice == 1)
+            int actionChoice = validChoice(1, 4);
+            if(actionChoice == 1)
             {
                 if (!stockStack.isEmpty())
                 {
@@ -72,9 +70,26 @@ public class Main {
                 }
 
             }
-            System.out.println();
+            else if( actionChoice ==2 ){
+                int tableauChoice = validChoice(1,7);
+
+
+
+            }
         }
 
+    }
+
+    public static int validChoice(int lowerBound, int higherBound)
+    {
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        while (choice < lowerBound || choice  > higherBound) {
+            System.out.println("Please enter a valid choice");
+            choice = scanner.nextInt();
+        }
+
+        return choice;
     }
 
 }
